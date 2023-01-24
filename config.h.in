@@ -1,0 +1,36 @@
+#ifndef CONFIG_H_IN
+#define CONFIG_H_IN
+
+// specify needed paths
+#define EXECUTION_DIR "@EXECUTION_DIR@"
+#define SIESTA_CONFIG "@SIESTA_CONFIG@"
+#define CHARTS_OUTPUT "@CHARTS_OUTPUT@"
+
+// specify file names
+#if __unix__
+  #define SIESTA_EXE_NAME "siesta"
+#elif _WIN32 || _WIN64
+  #define SIESTA_EXE_NAME "siesta.exe"
+#endif
+
+// define C-string buffer size
+#define BUFFSIZE 256
+
+#define SIESTA_SOURCE "source.fdf"
+#define SIESTA_OUTPUT "siesta.out"
+
+// specify scripts names
+#define SHELL_SCRIPT_NAME "script.sh"
+
+// specify keys for options in siesta's configuration file
+#define SIESTA_CFG_KEY_PATH "PATH"
+
+// specify launch options
+#define CMD_PATH         "--path"
+#define CMD_PATH_SHORT   "-p"
+#define CMD_LAUNCH       "--launch"
+#define CMD_LAUNCH_SHORT "-l"
+#define CMD_DELAY          "--pause_delay"
+#define CMD_DELAY_SHORT    "-pd"
+
+#endif // CONFIG_H_IN
