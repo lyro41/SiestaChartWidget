@@ -1,0 +1,1785 @@
+Siesta Version  : 4.1.5
+Architecture    : unknown
+Compiler version: GNU Fortran (Ubuntu 9.4.0-1ubuntu1~20.04.1) 9.4.0
+Compiler flags  : gfortran -O2 -fPIC -ftree-vectorize
+PP flags        : -DFC_HAVE_ABORT -DSIESTA__DIAG_2STAGE -DSIESTA__MRRR
+Libraries       : libsiestaLAPACK.a libsiestaBLAS.a
+SERIAL version
+
+* Running in serial mode
+>> Start of run:  25-JAN-2023   2:13:25
+
+                           ***********************       
+                           *  WELCOME TO SIESTA  *       
+                           ***********************       
+
+reinit: Reading from standard input
+reinit: Dumped input in INPUT_TMP.10461
+************************** Dump of input data file ****************************
+# $Id: sih.fdf,v 1.1 1999/04/20 14:43:44 emilio Exp $
+# -----------------------------------------------------------------------------
+# FDF for interstitial H in a cubic c-Si supercell with 64 atoms
+#
+# E. Artacho, April 1999
+# -----------------------------------------------------------------------------
+SystemName          H in 64-atom silicon
+SystemLabel         sih
+NumberOfAtoms       65
+NumberOfSpecies     2
+%block ChemicalSpeciesLabel
+ 1  14  Si
+ 2   1  H
+%endblock ChemicalSpeciesLabel
+PAO.BasisSize       SZ
+PAO.EnergyShift     300 meV
+%block PAO.Basis
+  H  1
+  0  1
+  0.
+  0.8
+%endblock PAO.Basis
+LatticeConstant     5.430 Ang
+%block LatticeVectors
+  2.000  0.000  0.000
+  0.000  2.000  0.000
+  0.000  0.000  2.000
+%endblock LatticeVectors
+MeshCutoff          40.0 Ry
+MaxSCFIterations    50
+DM.MixingWeight      0.3
+DM.NumberPulay       3
+DM.Tolerance         1.d-3
+DM.UseSaveDM
+SolutionMethod       diagon
+ElectronicTemperature  25 meV
+MD.TypeOfRun         cg
+MD.NumCGsteps        50
+MD.MaxCGDispl         0.1  Ang
+MD.MaxForceTol        0.04 eV/Ang
+AtomicCoordinatesFormat  ScaledCartesian
+%block AtomicCoordinatesAndAtomicSpecies
+    0.000    0.000    0.000   1 #  Si  1
+    0.250    0.250    0.250   1 #  Si  2
+    0.000    0.500    0.500   1 #  Si  3
+    0.250    0.750    0.750   1 #  Si  4
+    0.500    0.000    0.500   1 #  Si  5
+    0.750    0.250    0.750   1 #  Si  6
+    0.500    0.500    0.000   1 #  Si  7
+    0.750    0.750    0.250   1 #  Si  8
+    1.000    0.000    0.000   1 #  Si  9
+    1.250    0.250    0.250   1 #  Si 10
+    1.000    0.500    0.500   1 #  Si 11
+    1.250    0.750    0.750   1 #  Si 12
+    1.500    0.000    0.500   1 #  Si 13
+    1.750    0.250    0.750   1 #  Si 14
+    1.500    0.500    0.000   1 #  Si 15
+    1.750    0.750    0.250   1 #  Si 16
+    0.000    1.000    0.000   1 #  Si 17
+    0.250    1.250    0.250   1 #  Si 18
+    0.000    1.500    0.500   1 #  Si 19
+    0.250    1.750    0.750   1 #  Si 20
+    0.500    1.000    0.500   1 #  Si 21
+    0.750    1.250    0.750   1 #  Si 22
+    0.500    1.500    0.000   1 #  Si 23
+    0.750    1.750    0.250   1 #  Si 24
+    0.000    0.000    1.000   1 #  Si 25
+    0.250    0.250    1.250   1 #  Si 26
+    0.000    0.500    1.500   1 #  Si 27
+    0.250    0.750    1.750   1 #  Si 28
+    0.500    0.000    1.500   1 #  Si 29
+    0.750    0.250    1.750   1 #  Si 30
+    0.500    0.500    1.000   1 #  Si 31
+    0.750    0.750    1.250   1 #  Si 32
+    1.000    1.000    0.000   1 #  Si 33
+    1.250    1.250    0.250   1 #  Si 34
+    1.000    1.500    0.500   1 #  Si 35
+    1.250    1.750    0.750   1 #  Si 36
+    1.500    1.000    0.500   1 #  Si 37
+    1.750    1.250    0.750   1 #  Si 38
+    1.500    1.500    0.000   1 #  Si 39
+    1.750    1.750    0.250   1 #  Si 40
+    1.000    0.000    1.000   1 #  Si 41
+    1.250    0.250    1.250   1 #  Si 42
+    1.000    0.500    1.500   1 #  Si 43
+    1.250    0.750    1.750   1 #  Si 44
+    1.500    0.000    1.500   1 #  Si 45
+    1.750    0.250    1.750   1 #  Si 46
+    1.500    0.500    1.000   1 #  Si 47
+    1.750    0.750    1.250   1 #  Si 48
+    0.000    1.000    1.000   1 #  Si 49
+    0.250    1.250    1.250   1 #  Si 50
+    0.000    1.500    1.500   1 #  Si 51
+    0.250    1.750    1.750   1 #  Si 52
+    0.500    1.000    1.500   1 #  Si 53
+    0.750    1.250    1.750   1 #  Si 54
+    0.500    1.500    1.000   1 #  Si 55
+    0.750    1.750    1.250   1 #  Si 56
+    1.000    1.000    1.000   1 #  Si 57
+    1.250    1.250    1.250   1 #  Si 58
+    1.000    1.500    1.500   1 #  Si 59
+    1.250    1.750    1.750   1 #  Si 60
+    1.500    1.000    1.500   1 #  Si 61
+    1.750    1.250    1.750   1 #  Si 62
+    1.500    1.500    1.000   1 #  Si 63
+    1.750    1.750    1.250   1 #  Si 64
+    1.125    1.125    1.125   2 #  H  65
+%endblock AtomicCoordinatesAndAtomicSpecies
+************************** End of input data file *****************************
+
+reinit: -----------------------------------------------------------------------
+reinit: System Name: H in 64-atom silicon
+reinit: -----------------------------------------------------------------------
+reinit: System Label: sih
+reinit: -----------------------------------------------------------------------
+
+initatom: Reading input for the pseudopotentials and atomic orbitals ----------
+Species number:   1 Atomic number:   14 Label: Si
+Species number:   2 Atomic number:    1 Label: H
+
+Ground state valence configuration:   3s02  3p02
+Reading pseudopotential information in formatted form from Si.psf
+
+Valence configuration for pseudopotential generation:
+3s( 2.00) rc: 1.89
+3p( 2.00) rc: 1.89
+3d( 0.00) rc: 1.89
+4f( 0.00) rc: 1.89
+Ground state valence configuration:   1s01
+Reading pseudopotential information in formatted form from H.psf
+
+Valence configuration for pseudopotential generation:
+1s( 1.00) rc: 1.25
+2p( 0.00) rc: 1.25
+3d( 0.00) rc: 1.25
+4f( 0.00) rc: 1.25
+For Si, standard SIESTA heuristics set lmxkb to 2
+ (one more than the basis l, including polarization orbitals).
+Use PS.lmax or PS.KBprojectors blocks to override.
+For H, standard SIESTA heuristics set lmxkb to 1
+ (one more than the basis l, including polarization orbitals).
+Use PS.lmax or PS.KBprojectors blocks to override.
+
+<basis_specs>
+===============================================================================
+Si                   Z=  14    Mass=  28.090        Charge= 0.17977+309
+Lmxo=1 Lmxkb= 2    BasisType=split      Semic=F
+L=0  Nsemic=0  Cnfigmx=3
+          i=1  nzeta=1  polorb=0  (3s)
+            splnorm:   0.15000    
+               vcte:    0.0000    
+               rinn:    0.0000    
+               qcoe:    0.0000    
+               qyuk:    0.0000    
+               qwid:   0.10000E-01
+                rcs:    0.0000    
+            lambdas:    1.0000    
+L=1  Nsemic=0  Cnfigmx=3
+          i=1  nzeta=1  polorb=0  (3p)
+            splnorm:   0.15000    
+               vcte:    0.0000    
+               rinn:    0.0000    
+               qcoe:    0.0000    
+               qyuk:    0.0000    
+               qwid:   0.10000E-01
+                rcs:    0.0000    
+            lambdas:    1.0000    
+-------------------------------------------------------------------------------
+L=0  Nkbl=1  erefs: 0.17977+309
+L=1  Nkbl=1  erefs: 0.17977+309
+L=2  Nkbl=1  erefs: 0.17977+309
+===============================================================================
+</basis_specs>
+
+atom: Called for Si                    (Z =  14)
+
+read_vps: Pseudopotential generation method:
+read_vps: ATM3      Troullier-Martins                       
+Valence charge for ps generation:    4.00000
+
+xc_check: Exchange-correlation functional:
+xc_check: Ceperley-Alder
+V l=0 = -2*Zval/r beyond r=  2.5494
+V l=1 = -2*Zval/r beyond r=  2.5494
+V l=2 = -2*Zval/r beyond r=  2.5494
+All V_l potentials equal beyond r=  1.8652
+This should be close to max(r_c) in ps generation
+All pots = -2*Zval/r beyond r=  2.5494
+Using large-core scheme for Vlocal
+
+atom: Estimated core radius    2.54944
+
+atom: Including non-local core corrections could be a good idea
+atom: Maximum radius for 4*pi*r*r*local-pseudopot. charge    2.85303
+atom: Maximum radius for r*vlocal+2*Zval:    2.58151
+GHOST: No ghost state for L =  0
+GHOST: No ghost state for L =  1
+GHOST: No ghost state for L =  2
+
+KBgen: Kleinman-Bylander projectors: 
+   l= 0   rc=  1.936440   el= -0.796617   Ekb=  4.661340   kbcos=  0.299756
+   l= 1   rc=  1.936440   el= -0.307040   Ekb=  1.494238   kbcos=  0.301471
+   l= 2   rc=  1.936440   el=  0.002313   Ekb= -2.808672   kbcos= -0.054903
+
+KBgen: Total number of Kleinman-Bylander projectors:    9
+atom: -------------------------------------------------------------------------
+
+atom: SANKEY-TYPE ORBITALS:
+
+SPLIT: Orbitals with angular momentum L= 0
+
+SPLIT: Basis orbitals for state 3s
+
+SPLIT: PAO cut-off radius determined from an
+SPLIT: energy shift=  0.022049 Ry
+
+   izeta = 1
+                 lambda =    1.000000
+                     rc =    4.883716
+                 energy =   -0.773554
+                kinetic =    0.585471
+    potential(screened) =   -1.359025
+       potential(ionic) =   -3.840954
+
+SPLIT: Orbitals with angular momentum L= 1
+
+SPLIT: Basis orbitals for state 3p
+
+SPLIT: PAO cut-off radius determined from an
+SPLIT: energy shift=  0.022049 Ry
+
+   izeta = 1
+                 lambda =    1.000000
+                     rc =    6.116033
+                 energy =   -0.285742
+                kinetic =    0.892202
+    potential(screened) =   -1.177944
+       potential(ionic) =   -3.446720
+atom: Total number of Sankey-type orbitals:  4
+
+atm_pop: Valence configuration (for local Pseudopot. screening):
+ 3s( 2.00)                                                            
+ 3p( 2.00)                                                            
+Vna: chval, zval:    4.00000   4.00000
+
+Vna:  Cut-off radius for the neutral-atom potential:   6.116033
+
+atom: _________________________________________________________________________
+
+<basis_specs>
+===============================================================================
+H                    Z=   1    Mass=  1.0100        Charge= 0.17977+309
+Lmxo=0 Lmxkb= 1    BasisType=split      Semic=F
+L=0  Nsemic=0  Cnfigmx=1
+          i=1  nzeta=1  polorb=0  (1s)
+            splnorm:   0.15000    
+               vcte:    0.0000    
+               rinn:    0.0000    
+               qcoe:    0.0000    
+               qyuk:    0.0000    
+               qwid:   0.10000E-01
+                rcs:    0.0000    
+            lambdas:   0.80000    
+-------------------------------------------------------------------------------
+L=0  Nkbl=1  erefs: 0.17977+309
+L=1  Nkbl=1  erefs: 0.17977+309
+===============================================================================
+</basis_specs>
+
+atom: Called for H                     (Z =   1)
+
+read_vps: Pseudopotential generation method:
+read_vps: ATM3      Troullier-Martins                       
+Valence charge for ps generation:    1.00000
+
+xc_check: Exchange-correlation functional:
+xc_check: Ceperley-Alder
+V l=0 = -2*Zval/r beyond r=  1.2343
+V l=1 = -2*Zval/r beyond r=  1.2189
+All V_l potentials equal beyond r=  1.2343
+This should be close to max(r_c) in ps generation
+All pots = -2*Zval/r beyond r=  1.2343
+
+VLOCAL1: 99.0% of the norm of Vloc inside     28.493 Ry
+VLOCAL1: 99.9% of the norm of Vloc inside     64.935 Ry
+atom: Maximum radius for 4*pi*r*r*local-pseudopot. charge    1.45251
+atom: Maximum radius for r*vlocal+2*Zval:    1.21892
+GHOST: No ghost state for L =  0
+GHOST: No ghost state for L =  1
+
+KBgen: Kleinman-Bylander projectors: 
+   l= 0   rc=  1.364359   el= -0.467325   Ekb= -2.005361   kbcos= -0.336422
+   l= 1   rc=  1.434438   el=  0.001430   Ekb= -0.501708   kbcos= -0.021697
+
+KBgen: Total number of Kleinman-Bylander projectors:    4
+atom: -------------------------------------------------------------------------
+
+atom: SANKEY-TYPE ORBITALS:
+
+SPLIT: Orbitals with angular momentum L= 0
+
+SPLIT: Basis orbitals for state 1s
+
+SPLIT: PAO cut-off radius determined from an
+SPLIT: energy shift=  0.022049 Ry
+
+   izeta = 1
+                 lambda =    0.800000
+                     rc =    4.718242
+                 energy =   -0.396561
+                kinetic =    1.341628
+    potential(screened) =   -1.738188
+       potential(ionic) =   -2.295884
+atom: Total number of Sankey-type orbitals:  1
+
+atm_pop: Valence configuration (for local Pseudopot. screening):
+ 1s( 1.00)                                                            
+Vna: chval, zval:    1.00000   1.00000
+
+Vna:  Cut-off radius for the neutral-atom potential:   4.708991
+
+atom: _________________________________________________________________________
+
+prinput: Basis input ----------------------------------------------------------
+
+PAO.BasisType split     
+
+%block ChemicalSpeciesLabel
+    1   14 Si                      # Species index, atomic number, species label
+    2    1 H                       # Species index, atomic number, species label
+%endblock ChemicalSpeciesLabel
+
+%block PAO.Basis                 # Define Basis set
+Si                    2                    # Species label, number of l-shells
+ n=3   0   1                         # n, l, Nzeta 
+   4.884   
+   1.000   
+ n=3   1   1                         # n, l, Nzeta 
+   6.116   
+   1.000   
+H                     1                    # Species label, number of l-shells
+ n=1   0   1                         # n, l, Nzeta 
+   4.718   
+   0.800   
+%endblock PAO.Basis
+
+prinput: ----------------------------------------------------------------------
+
+coor:   Atomic-coordinates input format  =     Cartesian coordinates
+coor:                                          (in units of alat)
+
+siesta: Atomic coordinates (Bohr) and species
+siesta:      0.00000   0.00000   0.00000  1        1
+siesta:      2.56530   2.56530   2.56530  1        2
+siesta:      0.00000   5.13061   5.13061  1        3
+siesta:      2.56530   7.69591   7.69591  1        4
+siesta:      5.13061   0.00000   5.13061  1        5
+siesta:      7.69591   2.56530   7.69591  1        6
+siesta:      5.13061   5.13061   0.00000  1        7
+siesta:      7.69591   7.69591   2.56530  1        8
+siesta:     10.26122   0.00000   0.00000  1        9
+siesta:     12.82652   2.56530   2.56530  1       10
+siesta:     10.26122   5.13061   5.13061  1       11
+siesta:     12.82652   7.69591   7.69591  1       12
+siesta:     15.39183   0.00000   5.13061  1       13
+siesta:     17.95713   2.56530   7.69591  1       14
+siesta:     15.39183   5.13061   0.00000  1       15
+siesta:     17.95713   7.69591   2.56530  1       16
+siesta:      0.00000  10.26122   0.00000  1       17
+siesta:      2.56530  12.82652   2.56530  1       18
+siesta:      0.00000  15.39183   5.13061  1       19
+siesta:      2.56530  17.95713   7.69591  1       20
+siesta:      5.13061  10.26122   5.13061  1       21
+siesta:      7.69591  12.82652   7.69591  1       22
+siesta:      5.13061  15.39183   0.00000  1       23
+siesta:      7.69591  17.95713   2.56530  1       24
+siesta:      0.00000   0.00000  10.26122  1       25
+siesta:      2.56530   2.56530  12.82652  1       26
+siesta:      0.00000   5.13061  15.39183  1       27
+siesta:      2.56530   7.69591  17.95713  1       28
+siesta:      5.13061   0.00000  15.39183  1       29
+siesta:      7.69591   2.56530  17.95713  1       30
+siesta:      5.13061   5.13061  10.26122  1       31
+siesta:      7.69591   7.69591  12.82652  1       32
+siesta:     10.26122  10.26122   0.00000  1       33
+siesta:     12.82652  12.82652   2.56530  1       34
+siesta:     10.26122  15.39183   5.13061  1       35
+siesta:     12.82652  17.95713   7.69591  1       36
+siesta:     15.39183  10.26122   5.13061  1       37
+siesta:     17.95713  12.82652   7.69591  1       38
+siesta:     15.39183  15.39183   0.00000  1       39
+siesta:     17.95713  17.95713   2.56530  1       40
+siesta:     10.26122   0.00000  10.26122  1       41
+siesta:     12.82652   2.56530  12.82652  1       42
+siesta:     10.26122   5.13061  15.39183  1       43
+siesta:     12.82652   7.69591  17.95713  1       44
+siesta:     15.39183   0.00000  15.39183  1       45
+siesta:     17.95713   2.56530  17.95713  1       46
+siesta:     15.39183   5.13061  10.26122  1       47
+siesta:     17.95713   7.69591  12.82652  1       48
+siesta:      0.00000  10.26122  10.26122  1       49
+siesta:      2.56530  12.82652  12.82652  1       50
+siesta:      0.00000  15.39183  15.39183  1       51
+siesta:      2.56530  17.95713  17.95713  1       52
+siesta:      5.13061  10.26122  15.39183  1       53
+siesta:      7.69591  12.82652  17.95713  1       54
+siesta:      5.13061  15.39183  10.26122  1       55
+siesta:      7.69591  17.95713  12.82652  1       56
+siesta:     10.26122  10.26122  10.26122  1       57
+siesta:     12.82652  12.82652  12.82652  1       58
+siesta:     10.26122  15.39183  15.39183  1       59
+siesta:     12.82652  17.95713  17.95713  1       60
+siesta:     15.39183  10.26122  15.39183  1       61
+siesta:     17.95713  12.82652  17.95713  1       62
+siesta:     15.39183  15.39183  10.26122  1       63
+siesta:     17.95713  17.95713  12.82652  1       64
+siesta:     11.54387  11.54387  11.54387  2       65
+
+siesta: System type = bulk      
+
+initatomlists: Number of atoms, orbitals, and projectors:     65   257   580
+
+siesta: ******************** Simulation parameters ****************************
+siesta:
+siesta: The following are some of the parameters of the simulation.
+siesta: A complete list of the parameters used, including default values,
+siesta: can be found in file out.fdf
+siesta:
+redata: Spin configuration                          = none
+redata: Number of spin components                   = 1
+redata: Time-Reversal Symmetry                      = T
+redata: Spin spiral                                 = F
+redata: Long output                                 =   F
+redata: Number of Atomic Species                    =        2
+redata: Charge density info will appear in .RHO file
+redata: Write Mulliken Pop.                         = NO
+redata: Matel table size (NRTAB)                    =     1024
+redata: Mesh Cutoff                                 =    40.0000 Ry
+redata: Net charge of the system                    =     0.0000 |e|
+redata: Min. number of SCF Iter                     =        0
+redata: Max. number of SCF Iter                     =       50
+redata: SCF convergence failure will abort job
+redata: SCF mix quantity                            = Hamiltonian
+redata: Mix DM or H after convergence               =   F
+redata: Recompute H after scf cycle                 =   F
+redata: Mix DM in first SCF step                    =   T
+redata: Write Pulay info on disk                    =   F
+redata: New DM Occupancy tolerance                  = 0.000000000001
+redata: No kicks to SCF
+redata: DM Mixing Weight for Kicks                  =     0.5000
+redata: Require Harris convergence for SCF          =   F
+redata: Harris energy tolerance for SCF             =     0.000100 eV
+redata: Require DM convergence for SCF              =   T
+redata: DM tolerance for SCF                        =     0.001000
+redata: Require EDM convergence for SCF             =   F
+redata: EDM tolerance for SCF                       =     0.001000 eV
+redata: Require H convergence for SCF               =   T
+redata: Hamiltonian tolerance for SCF               =     0.001000 eV
+redata: Require (free) Energy convergence for SCF   =   F
+redata: (free) Energy tolerance for SCF             =     0.000100 eV
+redata: Using Saved Data (generic)                  =   F
+redata: Use continuation files for DM               =   T
+redata: Neglect nonoverlap interactions             =   F
+redata: Method of Calculation                       = Diagonalization
+redata: Electronic Temperature                      =   290.1109 K
+redata: Fix the spin of the system                  =   F
+redata: Dynamics option                             = CG coord. optimization
+redata: Variable cell                               =   F
+redata: Use continuation files for CG               =   F
+redata: Max atomic displ per move                   =     0.1000 Ang
+redata: Maximum number of optimization moves        =       50
+redata: Force tolerance                             =     0.0400 eV/Ang
+mix.SCF: Pulay mixing                            = Pulay
+mix.SCF:    Variant                              = stable
+mix.SCF:    History steps                        = 3
+mix.SCF:    Linear mixing weight                 =     0.300000
+mix.SCF:    Mixing weight                        =     0.300000
+mix.SCF:    SVD condition                        = 0.1000E-07
+redata: ***********************************************************************
+
+%block SCF.Mixers
+  Pulay
+%endblock SCF.Mixers
+
+%block SCF.Mixer.Pulay
+  # Mixing method
+  method pulay
+  variant stable
+
+  # Mixing options
+  weight 0.3000
+  weight.linear 0.3000
+  history 3
+%endblock SCF.Mixer.Pulay
+
+DM_history_depth set to one: no extrapolation allowed by default for geometry relaxation
+Size of DM history Fstack: 1
+Total number of electrons:   257.000000
+Total ionic charge:   257.000000
+ Kpoints in:            1 . Kpoints trimmed:            1
+
+siesta: k-grid: Number of k-points =     1
+siesta: k-grid: Cutoff (effective) =     5.430 Ang
+siesta: k-grid: Supercell and displacements
+siesta: k-grid:    1   0   0      0.000
+siesta: k-grid:    0   1   0      0.000
+siesta: k-grid:    0   0   1      0.000
+
+diag: Algorithm                                     = D&C
+diag: Used triangular part                          = Lower
+diag: Absolute tolerance                            =  0.100E-15
+diag: Orthogonalization factor                      =  0.100E-05
+diag: Memory factor                                 =  1.0000
+
+
+ts: **************************************************************
+ts: Save H and S matrices                           =    F
+ts: Save DM and EDM matrices                        =    F
+ts: Only save the overlap matrix S                  =    F
+ts: **************************************************************
+
+************************ Begin: TS CHECKS AND WARNINGS ************************
+************************ End: TS CHECKS AND WARNINGS **************************
+
+
+                     ====================================
+                        Begin CG opt. move =      0
+                     ====================================
+
+outcell: Unit cell vectors (Ang):
+       10.860000    0.000000    0.000000
+        0.000000   10.860000    0.000000
+        0.000000    0.000000   10.860000
+
+outcell: Cell vector modules (Ang)   :   10.860000   10.860000   10.860000
+outcell: Cell angles (23,13,12) (deg):     90.0000     90.0000     90.0000
+outcell: Cell volume (Ang**3)        :   1280.8241
+Gamma-point calculation with multiply-connected orbital pairs
+Folding of H and S implicitly performed
+<dSpData1D:S at geom step 0
+  <sparsity:sparsity for geom step 0
+    nrows_g=257 nrows=257 sparsity=.8046 nnzs=53143, refcount: 7>
+  <dData1D:(new from dSpData1D) n=53143, refcount: 1>
+refcount: 1>
+new_DM -- step:     1
+Initializing Density Matrix...
+
+Attempting to read DM from file... Succeeded...
+DM from file:
+<dSpData2D:IO-DM: sih.DM
+  <sparsity:IO-DM: sih.DM
+    nrows_g=257 nrows=257 sparsity=.8099 nnzs=53491, refcount: 1>
+  <dData2D:(new from dSpData2D) n=53491 m=1, refcount: 1>
+refcount: 1>
+DM to be used:
+<dSpData2D:Re-structured SpM
+  <sparsity:sparsity for geom step 0
+    nrows_g=257 nrows=257 sparsity=.8046 nnzs=53143, refcount: 8>
+  <dData2D:(new in restruct) n=53143 m=1, refcount: 1>
+refcount: 1>
+No. of atoms with KB's overlaping orbs in proc 0. Max # of overlaps:      65      57
+New grid distribution:   1
+           1       1:   24    1:   24    1:   24
+
+InitMesh: MESH =    48 x    48 x    48 =      110592
+InitMesh: (bp) =    24 x    24 x    24 =       13824
+InitMesh: Mesh cutoff (required, used) =    40.000    53.991 Ry
+ExtMesh (bp) on 0 =    56 x    56 x    56 =      175616
+PhiOnMesh: Number of (b)points on node 0 =                13824
+PhiOnMesh: nlist on node 0 =               402383
+
+stepf: Fermi-Dirac step function
+
+siesta: Program's energy decomposition (eV):
+siesta: Ebs     =     -2386.332955
+siesta: Eions   =     12205.375277
+siesta: Ena     =      3677.559531
+siesta: Ekin    =      2583.760880
+siesta: Enl     =       948.846802
+siesta: Eso     =         0.000000
+siesta: Edftu   =         0.000000
+siesta: DEna    =       212.306045
+siesta: DUscf   =         5.910069
+siesta: DUext   =         0.000000
+siesta: Exc     =     -2068.030454
+siesta: eta*DQ  =         0.000000
+siesta: Emadel  =         0.000000
+siesta: Emeta   =         0.000000
+siesta: Emolmec =         0.000000
+siesta: Ekinion =         0.000000
+siesta: Eharris =     -6839.527372
+siesta: Etot    =     -6845.022404
+siesta: FreeEng =     -6845.057092
+
+        iscf     Eharris(eV)        E_KS(eV)     FreeEng(eV)     dDmax    Ef(eV) dHmax(eV)
+   scf:    1    -6839.527372    -6845.022404    -6845.057092  0.789798 -2.475901  2.728027
+timer: Routine,Calls,Time,% = IterSCF        1       0.449  29.43
+   scf:    2    -6816.958834    -6836.530399    -6836.608656  0.462978 -2.241479 10.538952
+   scf:    3    -6847.116224    -6845.523927    -6845.559064  0.374689 -2.358436  0.124789
+   scf:    4    -6845.528254    -6845.526344    -6845.561514  0.007656 -2.357012  0.091628
+   scf:    5    -6845.528197    -6845.527356    -6845.562538  0.010075 -2.356641  0.042472
+   scf:    6    -6845.527859    -6845.527627    -6845.562800  0.008133 -2.357213  0.006224
+   scf:    7    -6845.527658    -6845.527643    -6845.562813  0.001897 -2.357415  0.001986
+   scf:    8    -6845.527652    -6845.527648    -6845.562815  0.000159 -2.357615  0.000853
+
+SCF Convergence by DM+H criterion
+max |DM_out - DM_in|         :     0.0001594675
+max |H_out - H_in|      (eV) :     0.0008525854
+SCF cycle converged after 8 iterations
+
+Using DM_out to compute the final energy and forces
+No. of atoms with KB's overlaping orbs in proc 0. Max # of overlaps:      65      57
+
+siesta: E_KS(eV) =            -6845.5276
+
+siesta: E_KS - E_eggbox =     -6845.5276
+
+siesta: Atomic forces (eV/Ang):
+----------------------------------------
+   Tot   -0.000000    0.000000    0.000000
+----------------------------------------
+   Max    9.573770
+   Res    1.680432    sqrt( Sum f_i^2 / 3N )
+----------------------------------------
+   Max    9.573770    constrained
+
+Stress tensor Voigt[x,y,z,yz,xz,xy] (kbar):      -77.78      -77.78      -77.78      -15.44      -15.44      -15.44
+(Free)E + p*V (eV/cell)    -6783.3838
+Target enthalpy (eV/cell)    -6845.5628
+
+                     ====================================
+                        Begin CG opt. move =      1
+                     ====================================
+
+outcell: Unit cell vectors (Ang):
+       10.860000    0.000000    0.000000
+        0.000000   10.860000    0.000000
+        0.000000    0.000000   10.860000
+
+outcell: Cell vector modules (Ang)   :   10.860000   10.860000   10.860000
+outcell: Cell angles (23,13,12) (deg):     90.0000     90.0000     90.0000
+outcell: Cell volume (Ang**3)        :   1280.8241
+Gamma-point calculation with multiply-connected orbital pairs
+Folding of H and S implicitly performed
+<dSpData1D:S at geom step 1
+  <sparsity:sparsity for geom step 1
+    nrows_g=257 nrows=257 sparsity=.8046 nnzs=53143, refcount: 7>
+  <dData1D:(new from dSpData1D) n=53143, refcount: 1>
+refcount: 1>
+new_DM -- step:     2
+Re-using DM from previous geometries...
+Number of DMs in history: 1
+ DM extrapolation coefficients: 
+1   1.00000
+New DM after history re-use:
+<dSpData2D:SpM extrapolated using coords
+  <sparsity:sparsity for geom step 1
+    nrows_g=257 nrows=257 sparsity=.8046 nnzs=53143, refcount: 9>
+  <dData2D:(temp array for extrapolation) n=53143 m=1, refcount: 1>
+refcount: 1>
+No. of atoms with KB's overlaping orbs in proc 0. Max # of overlaps:      65      57
+New grid distribution:   1
+           1       1:   24    1:   24    1:   24
+
+InitMesh: MESH =    48 x    48 x    48 =      110592
+InitMesh: (bp) =    24 x    24 x    24 =       13824
+InitMesh: Mesh cutoff (required, used) =    40.000    53.991 Ry
+ExtMesh (bp) on 0 =    56 x    56 x    56 =      175616
+PhiOnMesh: Number of (b)points on node 0 =                13824
+PhiOnMesh: nlist on node 0 =               402482
+
+        iscf     Eharris(eV)        E_KS(eV)     FreeEng(eV)     dDmax    Ef(eV) dHmax(eV)
+   scf:    1    -6845.859670    -6846.823712    -6846.858822  0.309104 -2.315784  4.184121
+   scf:    2    -6816.967996    -6837.978394    -6838.017745  0.473783 -3.735283 12.884626
+   scf:    3    -6849.733030    -6847.532918    -6847.567575  0.326373 -2.539018  0.133766
+   scf:    4    -6847.535940    -6847.535274    -6847.569932  0.006517 -2.525735  0.092890
+   scf:    5    -6847.535748    -6847.535538    -6847.570195  0.006959 -2.526640  0.022332
+   scf:    6    -6847.535607    -6847.535575    -6847.570232  0.002589 -2.526173  0.009049
+   scf:    7    -6847.535585    -6847.535580    -6847.570238  0.000888 -2.526114  0.003071
+   scf:    8    -6847.535583    -6847.535582    -6847.570239  0.000503 -2.525986  0.000775
+
+SCF Convergence by DM+H criterion
+max |DM_out - DM_in|         :     0.0005030200
+max |H_out - H_in|      (eV) :     0.0007751294
+SCF cycle converged after 8 iterations
+
+Using DM_out to compute the final energy and forces
+No. of atoms with KB's overlaping orbs in proc 0. Max # of overlaps:      65      57
+
+siesta: E_KS(eV) =            -6847.5356
+
+siesta: Atomic forces (eV/Ang):
+----------------------------------------
+   Tot   -0.000000    0.000000    0.000000
+----------------------------------------
+   Max    6.927782
+   Res    1.216262    sqrt( Sum f_i^2 / 3N )
+----------------------------------------
+   Max    6.927782    constrained
+
+Stress tensor Voigt[x,y,z,yz,xz,xy] (kbar):      -75.17      -75.17      -75.17      -11.89      -11.89      -11.89
+(Free)E + p*V (eV/cell)    -6787.4780
+Target enthalpy (eV/cell)    -6847.5702
+
+                     ====================================
+                        Begin CG opt. move =      2
+                     ====================================
+
+outcell: Unit cell vectors (Ang):
+       10.860000    0.000000    0.000000
+        0.000000   10.860000    0.000000
+        0.000000    0.000000   10.860000
+
+outcell: Cell vector modules (Ang)   :   10.860000   10.860000   10.860000
+outcell: Cell angles (23,13,12) (deg):     90.0000     90.0000     90.0000
+outcell: Cell volume (Ang**3)        :   1280.8241
+Gamma-point calculation with multiply-connected orbital pairs
+Folding of H and S implicitly performed
+<dSpData1D:S at geom step 2
+  <sparsity:sparsity for geom step 2
+    nrows_g=257 nrows=257 sparsity=.8046 nnzs=53143, refcount: 7>
+  <dData1D:(new from dSpData1D) n=53143, refcount: 1>
+refcount: 1>
+new_DM -- step:     3
+Re-using DM from previous geometries...
+Number of DMs in history: 1
+ DM extrapolation coefficients: 
+1   1.00000
+New DM after history re-use:
+<dSpData2D:SpM extrapolated using coords
+  <sparsity:sparsity for geom step 2
+    nrows_g=257 nrows=257 sparsity=.8046 nnzs=53143, refcount: 9>
+  <dData2D:(temp array for extrapolation) n=53143 m=1, refcount: 1>
+refcount: 1>
+No. of atoms with KB's overlaping orbs in proc 0. Max # of overlaps:      65      57
+New grid distribution:   1
+           1       1:   24    1:   24    1:   24
+
+InitMesh: MESH =    48 x    48 x    48 =      110592
+InitMesh: (bp) =    24 x    24 x    24 =       13824
+InitMesh: Mesh cutoff (required, used) =    40.000    53.991 Ry
+ExtMesh (bp) on 0 =    56 x    56 x    56 =      175616
+PhiOnMesh: Number of (b)points on node 0 =                13824
+PhiOnMesh: nlist on node 0 =               402567
+
+        iscf     Eharris(eV)        E_KS(eV)     FreeEng(eV)     dDmax    Ef(eV) dHmax(eV)
+   scf:    1    -6847.534153    -6848.678597    -6848.713256  0.325584 -2.483507  4.700491
+   scf:    2    -6789.257199    -6830.420961    -6830.484505  0.541314 -3.820147 17.706699
+   scf:    3    -6852.540876    -6849.602049    -6849.636706  0.467350 -2.740575  0.721925
+   scf:    4    -6849.621661    -6849.616680    -6849.651337  0.015524 -2.790715  0.107906
+   scf:    5    -6849.617181    -6849.616963    -6849.651620  0.005164 -2.795280  0.031607
+   scf:    6    -6849.617075    -6849.617023    -6849.651681  0.002689 -2.795408  0.012140
+   scf:    7    -6849.617039    -6849.617032    -6849.651689  0.000851 -2.795521  0.004661
+   scf:    8    -6849.617037    -6849.617034    -6849.651692  0.000589 -2.795441  0.001043
+   scf:    9    -6849.617035    -6849.617035    -6849.651692  0.000248 -2.795427  0.000702
+
+SCF Convergence by DM+H criterion
+max |DM_out - DM_in|         :     0.0002477505
+max |H_out - H_in|      (eV) :     0.0007019002
+SCF cycle converged after 9 iterations
+
+Using DM_out to compute the final energy and forces
+No. of atoms with KB's overlaping orbs in proc 0. Max # of overlaps:      65      57
+
+siesta: E_KS(eV) =            -6849.6170
+
+siesta: Atomic forces (eV/Ang):
+----------------------------------------
+   Tot   -0.000000    0.000000    0.000000
+----------------------------------------
+   Max    3.841242
+   Res    0.680891    sqrt( Sum f_i^2 / 3N )
+----------------------------------------
+   Max    3.841242    constrained
+
+Stress tensor Voigt[x,y,z,yz,xz,xy] (kbar):      -72.92      -72.92      -72.92       -7.15       -7.15       -7.15
+(Free)E + p*V (eV/cell)    -6791.3575
+Target enthalpy (eV/cell)    -6849.6517
+
+                     ====================================
+                        Begin CG opt. move =      3
+                     ====================================
+
+outcell: Unit cell vectors (Ang):
+       10.860000    0.000000    0.000000
+        0.000000   10.860000    0.000000
+        0.000000    0.000000   10.860000
+
+outcell: Cell vector modules (Ang)   :   10.860000   10.860000   10.860000
+outcell: Cell angles (23,13,12) (deg):     90.0000     90.0000     90.0000
+outcell: Cell volume (Ang**3)        :   1280.8241
+Gamma-point calculation with multiply-connected orbital pairs
+Folding of H and S implicitly performed
+<dSpData1D:S at geom step 3
+  <sparsity:sparsity for geom step 3
+    nrows_g=257 nrows=257 sparsity=.8131 nnzs=53707, refcount: 7>
+  <dData1D:(new from dSpData1D) n=53707, refcount: 1>
+refcount: 1>
+new_DM -- step:     4
+Re-using DM from previous geometries...
+Number of DMs in history: 1
+ DM extrapolation coefficients: 
+1   1.00000
+New DM after history re-use:
+<dSpData2D:SpM extrapolated using coords
+  <sparsity:sparsity for geom step 3
+    nrows_g=257 nrows=257 sparsity=.8131 nnzs=53707, refcount: 9>
+  <dData2D:(temp array for extrapolation) n=53707 m=1, refcount: 1>
+refcount: 1>
+No. of atoms with KB's overlaping orbs in proc 0. Max # of overlaps:      65      69
+New grid distribution:   1
+           1       1:   24    1:   24    1:   24
+
+InitMesh: MESH =    48 x    48 x    48 =      110592
+InitMesh: (bp) =    24 x    24 x    24 =       13824
+InitMesh: Mesh cutoff (required, used) =    40.000    53.991 Ry
+ExtMesh (bp) on 0 =    56 x    56 x    56 =      175616
+PhiOnMesh: Number of (b)points on node 0 =                13824
+PhiOnMesh: nlist on node 0 =               402548
+
+        iscf     Eharris(eV)        E_KS(eV)     FreeEng(eV)     dDmax    Ef(eV) dHmax(eV)
+   scf:    1    -6850.532143    -6850.520319    -6850.554977  0.238816 -2.889514  2.929325
+   scf:    2    -6822.206162    -6841.674129    -6841.743487  0.339157 -3.870916 11.513492
+   scf:    3    -6852.110515    -6850.894038    -6850.928696  0.305611 -3.057822  0.719723
+   scf:    4    -6850.920616    -6850.910229    -6850.944887  0.008578 -3.100573  0.278952
+   scf:    5    -6850.913270    -6850.912620    -6850.947277  0.006785 -3.127322  0.009091
+   scf:    6    -6850.912677    -6850.912654    -6850.947311  0.001000 -3.127219  0.005774
+   scf:    7    -6850.912662    -6850.912658    -6850.947315  0.000365 -3.127290  0.002374
+   scf:    8    -6850.912661    -6850.912660    -6850.947317  0.000363 -3.127294  0.000455
+
+SCF Convergence by DM+H criterion
+max |DM_out - DM_in|         :     0.0003632902
+max |H_out - H_in|      (eV) :     0.0004545718
+SCF cycle converged after 8 iterations
+
+Using DM_out to compute the final energy and forces
+No. of atoms with KB's overlaping orbs in proc 0. Max # of overlaps:      65      69
+
+siesta: E_KS(eV) =            -6850.9127
+
+siesta: Atomic forces (eV/Ang):
+----------------------------------------
+   Tot    0.000000    0.000000    0.000000
+----------------------------------------
+   Max    0.791588
+   Res    0.241867    sqrt( Sum f_i^2 / 3N )
+----------------------------------------
+   Max    0.791588    constrained
+
+Stress tensor Voigt[x,y,z,yz,xz,xy] (kbar):      -70.94      -70.94      -70.94       -1.48       -1.48       -1.48
+(Free)E + p*V (eV/cell)    -6794.2339
+Target enthalpy (eV/cell)    -6850.9473
+
+                     ====================================
+                        Begin CG opt. move =      4
+                     ====================================
+
+outcell: Unit cell vectors (Ang):
+       10.860000    0.000000    0.000000
+        0.000000   10.860000    0.000000
+        0.000000    0.000000   10.860000
+
+outcell: Cell vector modules (Ang)   :   10.860000   10.860000   10.860000
+outcell: Cell angles (23,13,12) (deg):     90.0000     90.0000     90.0000
+outcell: Cell volume (Ang**3)        :   1280.8241
+Gamma-point calculation with multiply-connected orbital pairs
+Folding of H and S implicitly performed
+<dSpData1D:S at geom step 4
+  <sparsity:sparsity for geom step 4
+    nrows_g=257 nrows=257 sparsity=.8101 nnzs=53503, refcount: 7>
+  <dData1D:(new from dSpData1D) n=53503, refcount: 1>
+refcount: 1>
+new_DM -- step:     5
+Re-using DM from previous geometries...
+Number of DMs in history: 1
+ DM extrapolation coefficients: 
+1   1.00000
+New DM after history re-use:
+<dSpData2D:SpM extrapolated using coords
+  <sparsity:sparsity for geom step 4
+    nrows_g=257 nrows=257 sparsity=.8101 nnzs=53503, refcount: 9>
+  <dData2D:(temp array for extrapolation) n=53503 m=1, refcount: 1>
+refcount: 1>
+No. of atoms with KB's overlaping orbs in proc 0. Max # of overlaps:      65      60
+New grid distribution:   1
+           1       1:   24    1:   24    1:   24
+
+InitMesh: MESH =    48 x    48 x    48 =      110592
+InitMesh: (bp) =    24 x    24 x    24 =       13824
+InitMesh: Mesh cutoff (required, used) =    40.000    53.991 Ry
+ExtMesh (bp) on 0 =    56 x    56 x    56 =      175616
+PhiOnMesh: Number of (b)points on node 0 =                13824
+PhiOnMesh: nlist on node 0 =               402671
+
+        iscf     Eharris(eV)        E_KS(eV)     FreeEng(eV)     dDmax    Ef(eV) dHmax(eV)
+   scf:    1    -6850.741900    -6850.743544    -6850.778201  0.081096 -3.479527  0.880280
+   scf:    2    -6849.237007    -6850.307549    -6850.342206  0.056387 -3.088706  2.253625
+   scf:    3    -6850.898700    -6850.793382    -6850.828039  0.041624 -3.371330  0.093756
+   scf:    4    -6850.793935    -6850.793704    -6850.828361  0.002006 -3.363041  0.028343
+   scf:    5    -6850.793809    -6850.793762    -6850.828420  0.001028 -3.359745  0.005185
+   scf:    6    -6850.793777    -6850.793770    -6850.828427  0.000187 -3.358882  0.001422
+   scf:    7    -6850.793774    -6850.793772    -6850.828429  0.000106 -3.358382  0.000227
+
+SCF Convergence by DM+H criterion
+max |DM_out - DM_in|         :     0.0001058151
+max |H_out - H_in|      (eV) :     0.0002268106
+SCF cycle converged after 7 iterations
+
+Using DM_out to compute the final energy and forces
+No. of atoms with KB's overlaping orbs in proc 0. Max # of overlaps:      65      60
+
+siesta: E_KS(eV) =            -6850.7938
+
+siesta: Atomic forces (eV/Ang):
+----------------------------------------
+   Tot   -0.000000    0.000000    0.000000
+----------------------------------------
+   Max    0.924313
+   Res    0.325328    sqrt( Sum f_i^2 / 3N )
+----------------------------------------
+   Max    0.924313    constrained
+
+Stress tensor Voigt[x,y,z,yz,xz,xy] (kbar):      -70.45      -70.45      -70.45        2.41        2.41        2.41
+(Free)E + p*V (eV/cell)    -6794.5084
+Target enthalpy (eV/cell)    -6850.8284
+
+                     ====================================
+                        Begin CG opt. move =      5
+                     ====================================
+
+outcell: Unit cell vectors (Ang):
+       10.860000    0.000000    0.000000
+        0.000000   10.860000    0.000000
+        0.000000    0.000000   10.860000
+
+outcell: Cell vector modules (Ang)   :   10.860000   10.860000   10.860000
+outcell: Cell angles (23,13,12) (deg):     90.0000     90.0000     90.0000
+outcell: Cell volume (Ang**3)        :   1280.8241
+Gamma-point calculation with multiply-connected orbital pairs
+Folding of H and S implicitly performed
+<dSpData1D:S at geom step 5
+  <sparsity:sparsity for geom step 5
+    nrows_g=257 nrows=257 sparsity=.8131 nnzs=53707, refcount: 7>
+  <dData1D:(new from dSpData1D) n=53707, refcount: 1>
+refcount: 1>
+new_DM -- step:     6
+Re-using DM from previous geometries...
+Number of DMs in history: 1
+ DM extrapolation coefficients: 
+1   1.00000
+New DM after history re-use:
+<dSpData2D:SpM extrapolated using coords
+  <sparsity:sparsity for geom step 5
+    nrows_g=257 nrows=257 sparsity=.8131 nnzs=53707, refcount: 9>
+  <dData2D:(temp array for extrapolation) n=53707 m=1, refcount: 1>
+refcount: 1>
+No. of atoms with KB's overlaping orbs in proc 0. Max # of overlaps:      65      69
+New grid distribution:   1
+           1       1:   24    1:   24    1:   24
+
+InitMesh: MESH =    48 x    48 x    48 =      110592
+InitMesh: (bp) =    24 x    24 x    24 =       13824
+InitMesh: Mesh cutoff (required, used) =    40.000    53.991 Ry
+ExtMesh (bp) on 0 =    56 x    56 x    56 =      175616
+PhiOnMesh: Number of (b)points on node 0 =                13824
+PhiOnMesh: nlist on node 0 =               402524
+
+        iscf     Eharris(eV)        E_KS(eV)     FreeEng(eV)     dDmax    Ef(eV) dHmax(eV)
+   scf:    1    -6850.692744    -6850.927445    -6850.962102  0.032030 -3.116135  1.181913
+   scf:    2    -6848.900195    -6850.337395    -6850.372054  0.070551 -3.585403  2.962970
+   scf:    3    -6851.134033    -6850.989399    -6851.024057  0.051597 -3.234419  0.091538
+   scf:    4    -6850.989796    -6850.989625    -6851.024282  0.002502 -3.239286  0.035140
+   scf:    5    -6850.989688    -6850.989661    -6851.024319  0.001439 -3.241642  0.005856
+   scf:    6    -6850.989668    -6850.989665    -6851.024322  0.000336 -3.242088  0.000619
+
+SCF Convergence by DM+H criterion
+max |DM_out - DM_in|         :     0.0003355055
+max |H_out - H_in|      (eV) :     0.0006194719
+SCF cycle converged after 6 iterations
+
+Using DM_out to compute the final energy and forces
+No. of atoms with KB's overlaping orbs in proc 0. Max # of overlaps:      65      69
+
+siesta: E_KS(eV) =            -6850.9897
+
+siesta: Atomic forces (eV/Ang):
+----------------------------------------
+   Tot   -0.000000   -0.000000    0.000000
+----------------------------------------
+   Max    0.773895
+   Res    0.240733    sqrt( Sum f_i^2 / 3N )
+----------------------------------------
+   Max    0.773895    constrained
+
+Stress tensor Voigt[x,y,z,yz,xz,xy] (kbar):      -70.56      -70.56      -70.56        0.40        0.40        0.40
+(Free)E + p*V (eV/cell)    -6794.6203
+Target enthalpy (eV/cell)    -6851.0243
+
+cgvc: Finished line minimization    1.  Mean atomic displacement =    0.1024
+
+                     ====================================
+                        Begin CG opt. move =      6
+                     ====================================
+
+outcell: Unit cell vectors (Ang):
+       10.860000    0.000000    0.000000
+        0.000000   10.860000    0.000000
+        0.000000    0.000000   10.860000
+
+outcell: Cell vector modules (Ang)   :   10.860000   10.860000   10.860000
+outcell: Cell angles (23,13,12) (deg):     90.0000     90.0000     90.0000
+outcell: Cell volume (Ang**3)        :   1280.8241
+Gamma-point calculation with multiply-connected orbital pairs
+Folding of H and S implicitly performed
+<dSpData1D:S at geom step 6
+  <sparsity:sparsity for geom step 6
+    nrows_g=257 nrows=257 sparsity=.8101 nnzs=53503, refcount: 7>
+  <dData1D:(new from dSpData1D) n=53503, refcount: 1>
+refcount: 1>
+new_DM -- step:     7
+Re-using DM from previous geometries...
+Number of DMs in history: 1
+ DM extrapolation coefficients: 
+1   1.00000
+New DM after history re-use:
+<dSpData2D:SpM extrapolated using coords
+  <sparsity:sparsity for geom step 6
+    nrows_g=257 nrows=257 sparsity=.8101 nnzs=53503, refcount: 9>
+  <dData2D:(temp array for extrapolation) n=53503 m=1, refcount: 1>
+refcount: 1>
+No. of atoms with KB's overlaping orbs in proc 0. Max # of overlaps:      65      60
+New grid distribution:   1
+           1       1:   24    1:   24    1:   24
+
+InitMesh: MESH =    48 x    48 x    48 =      110592
+InitMesh: (bp) =    24 x    24 x    24 =       13824
+InitMesh: Mesh cutoff (required, used) =    40.000    53.991 Ry
+ExtMesh (bp) on 0 =    56 x    56 x    56 =      175616
+PhiOnMesh: Number of (b)points on node 0 =                13824
+PhiOnMesh: nlist on node 0 =               403397
+
+        iscf     Eharris(eV)        E_KS(eV)     FreeEng(eV)     dDmax    Ef(eV) dHmax(eV)
+   scf:    1    -6848.081377    -6850.130316    -6850.164973  0.204463 -3.375540  2.599721
+   scf:    2    -6825.911827    -6842.824334    -6842.905351  0.327947 -2.272826  9.889863
+   scf:    3    -6851.920430    -6850.711793    -6850.746450  0.256249 -3.009894  0.457391
+   scf:    4    -6850.739816    -6850.731232    -6850.765889  0.013205 -2.945525  0.049322
+   scf:    5    -6850.731936    -6850.731769    -6850.766427  0.002469 -2.934148  0.035471
+   scf:    6    -6850.731922    -6850.731870    -6850.766527  0.001181 -2.938370  0.001962
+   scf:    7    -6850.731883    -6850.731877    -6850.766534  0.000199 -2.938550  0.000849
+
+SCF Convergence by DM+H criterion
+max |DM_out - DM_in|         :     0.0001986684
+max |H_out - H_in|      (eV) :     0.0008487781
+SCF cycle converged after 7 iterations
+
+Using DM_out to compute the final energy and forces
+No. of atoms with KB's overlaping orbs in proc 0. Max # of overlaps:      65      60
+
+siesta: E_KS(eV) =            -6850.7319
+
+siesta: Atomic forces (eV/Ang):
+----------------------------------------
+   Tot   -0.000000    0.000000   -0.000000
+----------------------------------------
+   Max    1.071160
+   Res    0.362994    sqrt( Sum f_i^2 / 3N )
+----------------------------------------
+   Max    1.071160    constrained
+
+Stress tensor Voigt[x,y,z,yz,xz,xy] (kbar):      -71.05      -71.05      -71.05       -6.66       -6.66       -6.66
+(Free)E + p*V (eV/cell)    -6793.9709
+Target enthalpy (eV/cell)    -6850.7665
+
+                     ====================================
+                        Begin CG opt. move =      7
+                     ====================================
+
+outcell: Unit cell vectors (Ang):
+       10.860000    0.000000    0.000000
+        0.000000   10.860000    0.000000
+        0.000000    0.000000   10.860000
+
+outcell: Cell vector modules (Ang)   :   10.860000   10.860000   10.860000
+outcell: Cell angles (23,13,12) (deg):     90.0000     90.0000     90.0000
+outcell: Cell volume (Ang**3)        :   1280.8241
+Gamma-point calculation with multiply-connected orbital pairs
+Folding of H and S implicitly performed
+<dSpData1D:S at geom step 7
+  <sparsity:sparsity for geom step 7
+    nrows_g=257 nrows=257 sparsity=.8099 nnzs=53491, refcount: 7>
+  <dData1D:(new from dSpData1D) n=53491, refcount: 1>
+refcount: 1>
+new_DM -- step:     8
+Re-using DM from previous geometries...
+Number of DMs in history: 1
+ DM extrapolation coefficients: 
+1   1.00000
+New DM after history re-use:
+<dSpData2D:SpM extrapolated using coords
+  <sparsity:sparsity for geom step 7
+    nrows_g=257 nrows=257 sparsity=.8099 nnzs=53491, refcount: 9>
+  <dData2D:(temp array for extrapolation) n=53491 m=1, refcount: 1>
+refcount: 1>
+No. of atoms with KB's overlaping orbs in proc 0. Max # of overlaps:      65      60
+New grid distribution:   1
+           1       1:   24    1:   24    1:   24
+
+InitMesh: MESH =    48 x    48 x    48 =      110592
+InitMesh: (bp) =    24 x    24 x    24 =       13824
+InitMesh: Mesh cutoff (required, used) =    40.000    53.991 Ry
+ExtMesh (bp) on 0 =    56 x    56 x    56 =      175616
+PhiOnMesh: Number of (b)points on node 0 =                13824
+PhiOnMesh: nlist on node 0 =               402977
+
+        iscf     Eharris(eV)        E_KS(eV)     FreeEng(eV)     dDmax    Ef(eV) dHmax(eV)
+   scf:    1    -6850.743840    -6851.027466    -6851.062123  0.122832 -2.857228  1.684050
+   scf:    2    -6845.011903    -6849.310658    -6849.349276  0.168636 -3.801244  5.117240
+   scf:    3    -6851.726330    -6851.260140    -6851.294798  0.120480 -3.090964  0.054324
+   scf:    4    -6851.262090    -6851.261255    -6851.295913  0.002378 -3.097179  0.032483
+   scf:    5    -6851.261584    -6851.261449    -6851.296106  0.001719 -3.098458  0.009575
+   scf:    6    -6851.261475    -6851.261463    -6851.296121  0.000412 -3.097967  0.002239
+   scf:    7    -6851.261467    -6851.261465    -6851.296123  0.000141 -3.097476  0.001181
+   scf:    8    -6851.261466    -6851.261466    -6851.296123  0.000044 -3.097388  0.000856
+
+SCF Convergence by DM+H criterion
+max |DM_out - DM_in|         :     0.0000441202
+max |H_out - H_in|      (eV) :     0.0008556525
+SCF cycle converged after 8 iterations
+
+Using DM_out to compute the final energy and forces
+No. of atoms with KB's overlaping orbs in proc 0. Max # of overlaps:      65      60
+
+siesta: E_KS(eV) =            -6851.2615
+
+siesta: Atomic forces (eV/Ang):
+----------------------------------------
+   Tot    0.000000    0.000000    0.000000
+----------------------------------------
+   Max    0.212346
+   Res    0.103845    sqrt( Sum f_i^2 / 3N )
+----------------------------------------
+   Max    0.212346    constrained
+
+Stress tensor Voigt[x,y,z,yz,xz,xy] (kbar):      -69.49      -69.49      -69.49       -3.07       -3.07       -3.07
+(Free)E + p*V (eV/cell)    -6795.7460
+Target enthalpy (eV/cell)    -6851.2961
+
+cgvc: Finished line minimization    2.  Mean atomic displacement =    0.0461
+
+                     ====================================
+                        Begin CG opt. move =      8
+                     ====================================
+
+outcell: Unit cell vectors (Ang):
+       10.860000    0.000000    0.000000
+        0.000000   10.860000    0.000000
+        0.000000    0.000000   10.860000
+
+outcell: Cell vector modules (Ang)   :   10.860000   10.860000   10.860000
+outcell: Cell angles (23,13,12) (deg):     90.0000     90.0000     90.0000
+outcell: Cell volume (Ang**3)        :   1280.8241
+Gamma-point calculation with multiply-connected orbital pairs
+Folding of H and S implicitly performed
+<dSpData1D:S at geom step 8
+  <sparsity:sparsity for geom step 8
+    nrows_g=257 nrows=257 sparsity=.8099 nnzs=53491, refcount: 7>
+  <dData1D:(new from dSpData1D) n=53491, refcount: 1>
+refcount: 1>
+new_DM -- step:     9
+Re-using DM from previous geometries...
+Number of DMs in history: 1
+ DM extrapolation coefficients: 
+1   1.00000
+New DM after history re-use:
+<dSpData2D:SpM extrapolated using coords
+  <sparsity:sparsity for geom step 8
+    nrows_g=257 nrows=257 sparsity=.8099 nnzs=53491, refcount: 9>
+  <dData2D:(temp array for extrapolation) n=53491 m=1, refcount: 1>
+refcount: 1>
+No. of atoms with KB's overlaping orbs in proc 0. Max # of overlaps:      65      60
+New grid distribution:   1
+           1       1:   24    1:   24    1:   24
+
+InitMesh: MESH =    48 x    48 x    48 =      110592
+InitMesh: (bp) =    24 x    24 x    24 =       13824
+InitMesh: Mesh cutoff (required, used) =    40.000    53.991 Ry
+ExtMesh (bp) on 0 =    56 x    56 x    56 =      175616
+PhiOnMesh: Number of (b)points on node 0 =                13824
+PhiOnMesh: nlist on node 0 =               403445
+
+        iscf     Eharris(eV)        E_KS(eV)     FreeEng(eV)     dDmax    Ef(eV) dHmax(eV)
+   scf:    1    -6850.815604    -6851.139332    -6851.173990  0.028931 -3.111865  0.599191
+   scf:    2    -6849.442482    -6850.662862    -6850.697519  0.047001 -2.840421  2.380990
+   scf:    3    -6851.338889    -6851.215371    -6851.250028  0.038002 -3.053260  0.033332
+   scf:    4    -6851.216449    -6851.216024    -6851.250681  0.001081 -3.052785  0.021130
+   scf:    5    -6851.216216    -6851.216132    -6851.250789  0.000844 -3.054072  0.002637
+   scf:    6    -6851.216153    -6851.216144    -6851.250801  0.000261 -3.054097  0.000690
+
+SCF Convergence by DM+H criterion
+max |DM_out - DM_in|         :     0.0002611869
+max |H_out - H_in|      (eV) :     0.0006901166
+SCF cycle converged after 6 iterations
+
+Using DM_out to compute the final energy and forces
+No. of atoms with KB's overlaping orbs in proc 0. Max # of overlaps:      65      60
+
+siesta: E_KS(eV) =            -6851.2161
+
+siesta: Atomic forces (eV/Ang):
+----------------------------------------
+   Tot   -0.000000   -0.000000   -0.000000
+----------------------------------------
+   Max    0.333296
+   Res    0.157829    sqrt( Sum f_i^2 / 3N )
+----------------------------------------
+   Max    0.333296    constrained
+
+Stress tensor Voigt[x,y,z,yz,xz,xy] (kbar):      -70.39      -70.39      -70.39       -3.45       -3.45       -3.45
+(Free)E + p*V (eV/cell)    -6794.9826
+Target enthalpy (eV/cell)    -6851.2508
+
+                     ====================================
+                        Begin CG opt. move =      9
+                     ====================================
+
+outcell: Unit cell vectors (Ang):
+       10.860000    0.000000    0.000000
+        0.000000   10.860000    0.000000
+        0.000000    0.000000   10.860000
+
+outcell: Cell vector modules (Ang)   :   10.860000   10.860000   10.860000
+outcell: Cell angles (23,13,12) (deg):     90.0000     90.0000     90.0000
+outcell: Cell volume (Ang**3)        :   1280.8241
+Gamma-point calculation with multiply-connected orbital pairs
+Folding of H and S implicitly performed
+<dSpData1D:S at geom step 9
+  <sparsity:sparsity for geom step 9
+    nrows_g=257 nrows=257 sparsity=.8099 nnzs=53491, refcount: 7>
+  <dData1D:(new from dSpData1D) n=53491, refcount: 1>
+refcount: 1>
+new_DM -- step:    10
+Re-using DM from previous geometries...
+Number of DMs in history: 1
+ DM extrapolation coefficients: 
+1   1.00000
+New DM after history re-use:
+<dSpData2D:SpM extrapolated using coords
+  <sparsity:sparsity for geom step 9
+    nrows_g=257 nrows=257 sparsity=.8099 nnzs=53491, refcount: 9>
+  <dData2D:(temp array for extrapolation) n=53491 m=1, refcount: 1>
+refcount: 1>
+No. of atoms with KB's overlaping orbs in proc 0. Max # of overlaps:      65      60
+New grid distribution:   1
+           1       1:   24    1:   24    1:   24
+
+InitMesh: MESH =    48 x    48 x    48 =      110592
+InitMesh: (bp) =    24 x    24 x    24 =       13824
+InitMesh: Mesh cutoff (required, used) =    40.000    53.991 Ry
+ExtMesh (bp) on 0 =    56 x    56 x    56 =      175616
+PhiOnMesh: Number of (b)points on node 0 =                13824
+PhiOnMesh: nlist on node 0 =               403508
+
+        iscf     Eharris(eV)        E_KS(eV)     FreeEng(eV)     dDmax    Ef(eV) dHmax(eV)
+   scf:    1    -6851.276743    -6851.283563    -6851.318221  0.016879 -3.043523  0.362496
+   scf:    2    -6850.705091    -6851.121907    -6851.156565  0.026252 -3.218407  1.375965
+   scf:    3    -6851.354340    -6851.310126    -6851.344783  0.020678 -3.079514  0.021904
+   scf:    4    -6851.310475    -6851.310329    -6851.344986  0.000734 -3.078678  0.013789
+   scf:    5    -6851.310397    -6851.310368    -6851.345025  0.000557 -3.077678  0.001513
+   scf:    6    -6851.310374    -6851.310371    -6851.345029  0.000122 -3.077728  0.000418
+
+SCF Convergence by DM+H criterion
+max |DM_out - DM_in|         :     0.0001222755
+max |H_out - H_in|      (eV) :     0.0004175375
+SCF cycle converged after 6 iterations
+
+Using DM_out to compute the final energy and forces
+No. of atoms with KB's overlaping orbs in proc 0. Max # of overlaps:      65      60
+
+siesta: E_KS(eV) =            -6851.3104
+
+siesta: Atomic forces (eV/Ang):
+----------------------------------------
+   Tot    0.000000    0.000000    0.000000
+----------------------------------------
+   Max    0.112539
+   Res    0.054280    sqrt( Sum f_i^2 / 3N )
+----------------------------------------
+   Max    0.112539    constrained
+
+Stress tensor Voigt[x,y,z,yz,xz,xy] (kbar):      -69.85      -69.85      -69.85       -3.13       -3.13       -3.13
+(Free)E + p*V (eV/cell)    -6795.5053
+Target enthalpy (eV/cell)    -6851.3450
+
+cgvc: Finished line minimization    3.  Mean atomic displacement =    0.0190
+
+                     ====================================
+                        Begin CG opt. move =     10
+                     ====================================
+
+outcell: Unit cell vectors (Ang):
+       10.860000    0.000000    0.000000
+        0.000000   10.860000    0.000000
+        0.000000    0.000000   10.860000
+
+outcell: Cell vector modules (Ang)   :   10.860000   10.860000   10.860000
+outcell: Cell angles (23,13,12) (deg):     90.0000     90.0000     90.0000
+outcell: Cell volume (Ang**3)        :   1280.8241
+Gamma-point calculation with multiply-connected orbital pairs
+Folding of H and S implicitly performed
+<dSpData1D:S at geom step 10
+  <sparsity:sparsity for geom step 10
+    nrows_g=257 nrows=257 sparsity=.8101 nnzs=53503, refcount: 7>
+  <dData1D:(new from dSpData1D) n=53503, refcount: 1>
+refcount: 1>
+new_DM -- step:    11
+Re-using DM from previous geometries...
+Number of DMs in history: 1
+ DM extrapolation coefficients: 
+1   1.00000
+New DM after history re-use:
+<dSpData2D:SpM extrapolated using coords
+  <sparsity:sparsity for geom step 10
+    nrows_g=257 nrows=257 sparsity=.8101 nnzs=53503, refcount: 9>
+  <dData2D:(temp array for extrapolation) n=53503 m=1, refcount: 1>
+refcount: 1>
+No. of atoms with KB's overlaping orbs in proc 0. Max # of overlaps:      65      60
+New grid distribution:   1
+           1       1:   24    1:   24    1:   24
+
+InitMesh: MESH =    48 x    48 x    48 =      110592
+InitMesh: (bp) =    24 x    24 x    24 =       13824
+InitMesh: Mesh cutoff (required, used) =    40.000    53.991 Ry
+ExtMesh (bp) on 0 =    56 x    56 x    56 =      175616
+PhiOnMesh: Number of (b)points on node 0 =                13824
+PhiOnMesh: nlist on node 0 =               403667
+
+        iscf     Eharris(eV)        E_KS(eV)     FreeEng(eV)     dDmax    Ef(eV) dHmax(eV)
+   scf:    1    -6851.273272    -6851.299390    -6851.334048  0.023290 -3.066707  0.143121
+   scf:    2    -6851.224411    -6851.283149    -6851.317806  0.021401 -3.146189  0.179073
+   scf:    3    -6851.318587    -6851.309773    -6851.344430  0.013126 -3.097972  0.017173
+   scf:    4    -6851.309873    -6851.309837    -6851.344494  0.000439 -3.097436  0.005584
+   scf:    5    -6851.309852    -6851.309845    -6851.344503  0.000178 -3.097393  0.005447
+   scf:    6    -6851.309852    -6851.309849    -6851.344507  0.000207 -3.096892  0.000627
+
+SCF Convergence by DM+H criterion
+max |DM_out - DM_in|         :     0.0002074243
+max |H_out - H_in|      (eV) :     0.0006274438
+SCF cycle converged after 6 iterations
+
+Using DM_out to compute the final energy and forces
+No. of atoms with KB's overlaping orbs in proc 0. Max # of overlaps:      65      60
+
+siesta: E_KS(eV) =            -6851.3098
+
+siesta: Atomic forces (eV/Ang):
+----------------------------------------
+   Tot   -0.000000   -0.000000    0.000000
+----------------------------------------
+   Max    0.207011
+   Res    0.071321    sqrt( Sum f_i^2 / 3N )
+----------------------------------------
+   Max    0.207011    constrained
+
+Stress tensor Voigt[x,y,z,yz,xz,xy] (kbar):      -69.70      -69.70      -69.70       -2.04       -2.04       -2.04
+(Free)E + p*V (eV/cell)    -6795.6232
+Target enthalpy (eV/cell)    -6851.3445
+
+                     ====================================
+                        Begin CG opt. move =     11
+                     ====================================
+
+outcell: Unit cell vectors (Ang):
+       10.860000    0.000000    0.000000
+        0.000000   10.860000    0.000000
+        0.000000    0.000000   10.860000
+
+outcell: Cell vector modules (Ang)   :   10.860000   10.860000   10.860000
+outcell: Cell angles (23,13,12) (deg):     90.0000     90.0000     90.0000
+outcell: Cell volume (Ang**3)        :   1280.8241
+Gamma-point calculation with multiply-connected orbital pairs
+Folding of H and S implicitly performed
+<dSpData1D:S at geom step 11
+  <sparsity:sparsity for geom step 11
+    nrows_g=257 nrows=257 sparsity=.8099 nnzs=53491, refcount: 7>
+  <dData1D:(new from dSpData1D) n=53491, refcount: 1>
+refcount: 1>
+new_DM -- step:    12
+Re-using DM from previous geometries...
+Number of DMs in history: 1
+ DM extrapolation coefficients: 
+1   1.00000
+New DM after history re-use:
+<dSpData2D:SpM extrapolated using coords
+  <sparsity:sparsity for geom step 11
+    nrows_g=257 nrows=257 sparsity=.8099 nnzs=53491, refcount: 9>
+  <dData2D:(temp array for extrapolation) n=53491 m=1, refcount: 1>
+refcount: 1>
+No. of atoms with KB's overlaping orbs in proc 0. Max # of overlaps:      65      60
+New grid distribution:   1
+           1       1:   24    1:   24    1:   24
+
+InitMesh: MESH =    48 x    48 x    48 =      110592
+InitMesh: (bp) =    24 x    24 x    24 =       13824
+InitMesh: Mesh cutoff (required, used) =    40.000    53.991 Ry
+ExtMesh (bp) on 0 =    56 x    56 x    56 =      175616
+PhiOnMesh: Number of (b)points on node 0 =                13824
+PhiOnMesh: nlist on node 0 =               403703
+
+        iscf     Eharris(eV)        E_KS(eV)     FreeEng(eV)     dDmax    Ef(eV) dHmax(eV)
+   scf:    1    -6851.313703    -6851.322889    -6851.357546  0.011564 -3.101965  0.072995
+   scf:    2    -6851.303920    -6851.318756    -6851.353413  0.010940 -3.061563  0.095635
+   scf:    3    -6851.327707    -6851.325478    -6851.360136  0.006778 -3.086169  0.007756
+   scf:    4    -6851.325503    -6851.325494    -6851.360151  0.000219 -3.086343  0.002682
+   scf:    5    -6851.325498    -6851.325496    -6851.360153  0.000087 -3.086367  0.002626
+   scf:    6    -6851.325498    -6851.325497    -6851.360154  0.000096 -3.086609  0.000326
+
+SCF Convergence by DM+H criterion
+max |DM_out - DM_in|         :     0.0000957682
+max |H_out - H_in|      (eV) :     0.0003262694
+SCF cycle converged after 6 iterations
+
+Using DM_out to compute the final energy and forces
+No. of atoms with KB's overlaping orbs in proc 0. Max # of overlaps:      65      60
+
+siesta: E_KS(eV) =            -6851.3255
+
+siesta: Atomic forces (eV/Ang):
+----------------------------------------
+   Tot    0.000000   -0.000000   -0.000000
+----------------------------------------
+   Max    0.051511
+   Res    0.025192    sqrt( Sum f_i^2 / 3N )
+----------------------------------------
+   Max    0.051511    constrained
+
+Stress tensor Voigt[x,y,z,yz,xz,xy] (kbar):      -70.22      -70.22      -70.22       -2.65       -2.65       -2.65
+(Free)E + p*V (eV/cell)    -6795.2219
+Target enthalpy (eV/cell)    -6851.3602
+
+cgvc: Finished line minimization    4.  Mean atomic displacement =    0.0095
+
+                     ====================================
+                        Begin CG opt. move =     12
+                     ====================================
+
+outcell: Unit cell vectors (Ang):
+       10.860000    0.000000    0.000000
+        0.000000   10.860000    0.000000
+        0.000000    0.000000   10.860000
+
+outcell: Cell vector modules (Ang)   :   10.860000   10.860000   10.860000
+outcell: Cell angles (23,13,12) (deg):     90.0000     90.0000     90.0000
+outcell: Cell volume (Ang**3)        :   1280.8241
+Gamma-point calculation with multiply-connected orbital pairs
+Folding of H and S implicitly performed
+<dSpData1D:S at geom step 12
+  <sparsity:sparsity for geom step 12
+    nrows_g=257 nrows=257 sparsity=.8099 nnzs=53491, refcount: 7>
+  <dData1D:(new from dSpData1D) n=53491, refcount: 1>
+refcount: 1>
+new_DM -- step:    13
+Re-using DM from previous geometries...
+Number of DMs in history: 1
+ DM extrapolation coefficients: 
+1   1.00000
+New DM after history re-use:
+<dSpData2D:SpM extrapolated using coords
+  <sparsity:sparsity for geom step 12
+    nrows_g=257 nrows=257 sparsity=.8099 nnzs=53491, refcount: 9>
+  <dData2D:(temp array for extrapolation) n=53491 m=1, refcount: 1>
+refcount: 1>
+No. of atoms with KB's overlaping orbs in proc 0. Max # of overlaps:      65      60
+New grid distribution:   1
+           1       1:   24    1:   24    1:   24
+
+InitMesh: MESH =    48 x    48 x    48 =      110592
+InitMesh: (bp) =    24 x    24 x    24 =       13824
+InitMesh: Mesh cutoff (required, used) =    40.000    53.991 Ry
+ExtMesh (bp) on 0 =    56 x    56 x    56 =      175616
+PhiOnMesh: Number of (b)points on node 0 =                13824
+PhiOnMesh: nlist on node 0 =               403721
+
+        iscf     Eharris(eV)        E_KS(eV)     FreeEng(eV)     dDmax    Ef(eV) dHmax(eV)
+   scf:    1    -6851.299168    -6851.323998    -6851.358655  0.004139 -3.069423  0.051793
+   scf:    2    -6851.299274    -6851.317971    -6851.352628  0.007508 -3.102822  0.106462
+   scf:    3    -6851.328800    -6851.326392    -6851.361049  0.004603 -3.083599  0.004444
+   scf:    4    -6851.326423    -6851.326412    -6851.361069  0.000177 -3.083823  0.002568
+   scf:    5    -6851.326416    -6851.326414    -6851.361072  0.000054 -3.084172  0.000897
+
+SCF Convergence by DM+H criterion
+max |DM_out - DM_in|         :     0.0000544351
+max |H_out - H_in|      (eV) :     0.0008968275
+SCF cycle converged after 5 iterations
+
+Using DM_out to compute the final energy and forces
+No. of atoms with KB's overlaping orbs in proc 0. Max # of overlaps:      65      60
+
+siesta: E_KS(eV) =            -6851.3264
+
+siesta: Atomic forces (eV/Ang):
+----------------------------------------
+   Tot   -0.000000    0.000000   -0.000000
+----------------------------------------
+   Max    0.079427
+   Res    0.029346    sqrt( Sum f_i^2 / 3N )
+----------------------------------------
+   Max    0.079427    constrained
+
+Stress tensor Voigt[x,y,z,yz,xz,xy] (kbar):      -69.91      -69.91      -69.91       -2.86       -2.86       -2.86
+(Free)E + p*V (eV/cell)    -6795.4708
+Target enthalpy (eV/cell)    -6851.3611
+
+                     ====================================
+                        Begin CG opt. move =     13
+                     ====================================
+
+outcell: Unit cell vectors (Ang):
+       10.860000    0.000000    0.000000
+        0.000000   10.860000    0.000000
+        0.000000    0.000000   10.860000
+
+outcell: Cell vector modules (Ang)   :   10.860000   10.860000   10.860000
+outcell: Cell angles (23,13,12) (deg):     90.0000     90.0000     90.0000
+outcell: Cell volume (Ang**3)        :   1280.8241
+Gamma-point calculation with multiply-connected orbital pairs
+Folding of H and S implicitly performed
+<dSpData1D:S at geom step 13
+  <sparsity:sparsity for geom step 13
+    nrows_g=257 nrows=257 sparsity=.8099 nnzs=53491, refcount: 7>
+  <dData1D:(new from dSpData1D) n=53491, refcount: 1>
+refcount: 1>
+new_DM -- step:    14
+Re-using DM from previous geometries...
+Number of DMs in history: 1
+ DM extrapolation coefficients: 
+1   1.00000
+New DM after history re-use:
+<dSpData2D:SpM extrapolated using coords
+  <sparsity:sparsity for geom step 13
+    nrows_g=257 nrows=257 sparsity=.8099 nnzs=53491, refcount: 9>
+  <dData2D:(temp array for extrapolation) n=53491 m=1, refcount: 1>
+refcount: 1>
+No. of atoms with KB's overlaping orbs in proc 0. Max # of overlaps:      65      60
+New grid distribution:   1
+           1       1:   24    1:   24    1:   24
+
+InitMesh: MESH =    48 x    48 x    48 =      110592
+InitMesh: (bp) =    24 x    24 x    24 =       13824
+InitMesh: Mesh cutoff (required, used) =    40.000    53.991 Ry
+ExtMesh (bp) on 0 =    56 x    56 x    56 =      175616
+PhiOnMesh: Number of (b)points on node 0 =                13824
+PhiOnMesh: nlist on node 0 =               403664
+
+        iscf     Eharris(eV)        E_KS(eV)     FreeEng(eV)     dDmax    Ef(eV) dHmax(eV)
+   scf:    1    -6851.334827    -6851.328258    -6851.362915  0.001811 -3.091582  0.022820
+   scf:    2    -6851.323387    -6851.327058    -6851.361715  0.003155 -3.078025  0.047576
+   scf:    3    -6851.329171    -6851.328712    -6851.363370  0.001925 -3.085636  0.002006
+   scf:    4    -6851.328719    -6851.328717    -6851.363374  0.000082 -3.085507  0.001129
+   scf:    5    -6851.328718    -6851.328717    -6851.363374  0.000026 -3.085349  0.000392
+
+SCF Convergence by DM+H criterion
+max |DM_out - DM_in|         :     0.0000260544
+max |H_out - H_in|      (eV) :     0.0003916865
+SCF cycle converged after 5 iterations
+
+Using DM_out to compute the final energy and forces
+No. of atoms with KB's overlaping orbs in proc 0. Max # of overlaps:      65      60
+
+siesta: E_KS(eV) =            -6851.3287
+
+siesta: Atomic forces (eV/Ang):
+----------------------------------------
+   Tot    0.000000   -0.000000    0.000000
+----------------------------------------
+   Max    0.032341
+   Res    0.013886    sqrt( Sum f_i^2 / 3N )
+----------------------------------------
+   Max    0.032341    constrained
+
+Stress tensor Voigt[x,y,z,yz,xz,xy] (kbar):      -69.90      -69.90      -69.90       -2.80       -2.80       -2.80
+(Free)E + p*V (eV/cell)    -6795.4845
+Target enthalpy (eV/cell)    -6851.3634
+
+outcoor: Relaxed atomic coordinates (scaled):               
+   -0.00034243   -0.00034243   -0.00034243   1       1  Si
+    0.25034243    0.25034243    0.25034243   1       2  Si
+    0.00024078    0.50095088    0.50095088   1       3  Si
+    0.25175752    0.75040867    0.75040867   1       4  Si
+    0.50095088    0.00024078    0.50095088   1       5  Si
+    0.75040867    0.25175752    0.75040867   1       6  Si
+    0.50095088    0.50095088    0.00024078   1       7  Si
+    0.75040867    0.75040867    0.25175752   1       8  Si
+    1.00040673    0.00147806    0.00147806   1       9  Si
+    1.24959327    0.24852194    0.24852194   1      10  Si
+    1.00025137    0.49631436    0.49631436   1      11  Si
+    1.25575196    0.74031247    0.74031247   1      12  Si
+    1.49999785    0.00095128    0.49880891   1      13  Si
+    1.75119109    0.24904872    0.75000215   1      14  Si
+    1.49999785    0.49880891    0.00095128   1      15  Si
+    1.75119109    0.75000215    0.24904872   1      16  Si
+    0.00147806    1.00040673    0.00147806   1      17  Si
+    0.24852194    1.24959327    0.24852194   1      18  Si
+    0.00095128    1.49999785    0.49880891   1      19  Si
+    0.24904872    1.75119109    0.75000215   1      20  Si
+    0.49631436    1.00025138    0.49631436   1      21  Si
+    0.74031247    1.25575196    0.74031247   1      22  Si
+    0.49880891    1.49999785    0.00095128   1      23  Si
+    0.75000215    1.75119109    0.24904872   1      24  Si
+    0.00147806    0.00147806    1.00040673   1      25  Si
+    0.24852194    0.24852194    1.24959327   1      26  Si
+    0.00095128    0.49880891    1.49999785   1      27  Si
+    0.24904872    0.75000215    1.75119109   1      28  Si
+    0.49880891    0.00095128    1.49999785   1      29  Si
+    0.75000215    0.24904872    1.75119109   1      30  Si
+    0.49631436    0.49631436    1.00025138   1      31  Si
+    0.74031247    0.74031247    1.25575196   1      32  Si
+    0.99970779    0.99970779    0.00133178   1      33  Si
+    1.25029221    1.25029221    0.24866822   1      34  Si
+    1.00153135    1.50114217    0.49776658   1      35  Si
+    1.24846865    1.75223342    0.74885783   1      36  Si
+    1.50114217    1.00153135    0.49776658   1      37  Si
+    1.75223342    1.24846865    0.74885783   1      38  Si
+    1.49959133    1.49959133   -0.00175752   1      39  Si
+    1.74904912    1.74904912    0.24975922   1      40  Si
+    0.99970779    0.00133178    0.99970779   1      41  Si
+    1.25029221    0.24866822    1.25029221   1      42  Si
+    1.00153135    0.49776658    1.50114217   1      43  Si
+    1.24846865    0.74885783    1.75223342   1      44  Si
+    1.49959133   -0.00175752    1.49959133   1      45  Si
+    1.74904912    0.24975922    1.74904912   1      46  Si
+    1.50114217    0.49776658    1.00153135   1      47  Si
+    1.75223342    0.74885783    1.24846865   1      48  Si
+    0.00133178    0.99970779    0.99970779   1      49  Si
+    0.24866822    1.25029221    1.25029221   1      50  Si
+   -0.00175752    1.49959133    1.49959133   1      51  Si
+    0.24975922    1.74904912    1.74904912   1      52  Si
+    0.49776658    1.00153135    1.50114217   1      53  Si
+    0.74885783    1.24846865    1.75223342   1      54  Si
+    0.49776658    1.50114217    1.00153135   1      55  Si
+    0.74885783    1.75223342    1.24846865   1      56  Si
+    0.95150993    0.95150993    0.95150993   1      57  Si
+    1.29849007    1.29849007    1.29849007   1      58  Si
+    0.99424804    1.50968753    1.50968753   1      59  Si
+    1.24974863    1.75368564    1.75368564   1      60  Si
+    1.50968753    0.99424804    1.50968753   1      61  Si
+    1.75368564    1.24974862    1.75368564   1      62  Si
+    1.50968753    1.50968753    0.99424804   1      63  Si
+    1.75368564    1.75368564    1.24974862   1      64  Si
+    1.12500000    1.12500000    1.12500000   2      65  H
+
+siesta: Program's energy decomposition (eV):
+siesta: Ebs     =     -2384.379897
+siesta: Eions   =     12205.375277
+siesta: Ena     =      3675.796924
+siesta: Ekin    =      2573.420616
+siesta: Enl     =       951.659266
+siesta: Eso     =         0.000000
+siesta: Edftu   =         0.000000
+siesta: DEna    =       213.822127
+siesta: DUscf   =         5.345264
+siesta: DUext   =         0.000000
+siesta: Exc     =     -2065.997636
+siesta: eta*DQ  =         0.000000
+siesta: Emadel  =         0.000000
+siesta: Emeta   =         0.000000
+siesta: Emolmec =         0.000000
+siesta: Ekinion =         0.000000
+siesta: Eharris =     -6851.328718
+siesta: Etot    =     -6851.328717
+siesta: FreeEng =     -6851.363374
+
+siesta: Final energy (eV):
+siesta:  Band Struct. =   -2384.379897
+siesta:       Kinetic =    2573.420616
+siesta:       Hartree =     405.717261
+siesta:       Edftu   =       0.000000
+siesta:       Eso     =       0.000000
+siesta:    Ext. field =       0.000000
+siesta:   Exch.-corr. =   -2065.997636
+siesta:  Ion-electron =   -3075.623921
+siesta:       Ion-ion =   -4688.845037
+siesta:       Ekinion =       0.000000
+siesta:         Total =   -6851.328717
+siesta:         Fermi =      -3.085349
+
+siesta: Stress tensor (static) (eV/Ang**3):
+siesta:    -0.043627   -0.001750   -0.001750
+siesta:    -0.001750   -0.043627   -0.001750
+siesta:    -0.001750   -0.001750   -0.043627
+
+siesta: Cell volume =       1280.824056 Ang**3
+
+siesta: Pressure (static):
+siesta:                Solid            Molecule  Units
+siesta:           0.00047516          0.00047172  Ry/Bohr**3
+siesta:           0.04362730          0.04331216  eV/Ang**3
+siesta:          69.89940208         69.39447442  kBar
+(Free)E+ p_basis*V_orbitals  =       -6834.161076
+(Free)Eharris+ p_basis*V_orbitals  =       -6834.161076
+
+cite: Please see "sih.bib" for an exhaustive BiBTeX file.
+cite: Please clearly indicate Siesta version in published work: 4.1.5
+cite: This calculation has made use of the following articles
+cite: which are encouraged to be cited in a published work.
+        Primary SIESTA paper
+          DOI: www.doi.org/10.1088/0953-8984/14/11/302
+
+
+timer: Elapsed wall time (sec) =      54.836
+timer: CPU execution times (sec):
+
+Routine            Calls   Time/call    Tot.time        %
+siesta                 1      54.833      54.833   100.00
+Setup                  1       0.203       0.203     0.37
+bands                  1       0.000       0.000     0.00
+KSV_init               1       0.000       0.000     0.00
+IterGeom              14       3.902      54.627    99.62
+state_init            14       0.040       0.560     1.02
+hsparse               14       0.020       0.274     0.50
+overlap               14       0.015       0.214     0.39
+Setup_H0              14       0.693       9.698    17.69
+naefs                 28       0.001       0.037     0.07
+MolMec                28       0.000       0.000     0.00
+kinefsm               28       0.015       0.417     0.76
+nlefsm                28       0.064       1.789     3.26
+DHSCF_Init            14       0.622       8.708    15.88
+DHSCF1                14       0.007       0.097     0.18
+INITMESH              14       0.000       0.000     0.00
+DHSCF2                14       0.615       8.611    15.70
+REMESH                14       0.089       1.246     2.27
+REORD                358       0.000       0.092     0.17
+PHION                 14       0.414       5.794    10.57
+COMM_BSC             534       0.000       0.100     0.18
+POISON               137       0.008       1.145     2.09
+fft                  274       0.003       0.866     1.58
+IterSCF               95       0.316      30.036    54.78
+setup_H              109       0.177      19.262    35.13
+DHSCF                123       0.260      32.023    58.40
+DHSCF3               123       0.177      21.737    39.64
+rhoofd               123       0.080       9.850    17.96
+XC                   123       0.023       2.813     5.13
+GXC-CellXC           123       0.022       2.764     5.04
+cellXC               123       0.022       2.762     5.04
+vmat                 123       0.063       7.742    14.12
+compute_dm            95       0.111      10.540    19.22
+diagon                95       0.111      10.502    19.15
+r-eigvec              95       0.056       5.335     9.73
+r-buildHS             95       0.000       0.045     0.08
+rdiag                 95       0.056       5.289     9.65
+rdiag1                95       0.002       0.189     0.35
+rdiag2                95       0.005       0.519     0.95
+rdiag3                95       0.034       3.191     5.82
+rdiag4                95       0.014       1.376     2.51
+r-buildD              95       0.054       5.131     9.36
+MIXER                 81       0.001       0.073     0.13
+PostSCF               14       1.021      14.289    26.06
+DHSCF4                14       0.735      10.285    18.76
+dfscf                 14       0.631       8.837    16.12
+overfsm               14       0.015       0.212     0.39
+state_analysis        14       0.001       0.011     0.02
+siesta_move           14       0.001       0.015     0.03
+Analysis               1       0.003       0.003     0.00
+siesta_analysis        1       0.003       0.003     0.00
+optical                1       0.000       0.000     0.00
+  
+>> End of run:  25-JAN-2023   2:14:20
+Job completed

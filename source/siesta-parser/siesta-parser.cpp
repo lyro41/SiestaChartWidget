@@ -8,6 +8,7 @@
 std::vector<OptMove> Parser::ParseCGOptMoves(std::FILE *stream) const {
   std::vector<OptMove> result(0);
   char buff[BUFFSIZE];
+  bool is_good = true;
   while (std::fscanf(stream, "%s", buff) != EOF) {
     if (std::strcmp(buff, "Begin") == 0) {
       int move;
@@ -15,6 +16,7 @@ std::vector<OptMove> Parser::ParseCGOptMoves(std::FILE *stream) const {
         if (move == result.size()) {
           while (std::fscanf(stream, "%s", buff) != EOF) {
             if (std::strcmp(buff, "iscf") == 0) {
+              is_good = false;
               result.push_back(OptMove{});
               std::vector<std::string> keys;
               keys.push_back(buff);
@@ -70,6 +72,7 @@ std::vector<OptMove> Parser::ParseCGOptMoves(std::FILE *stream) const {
                 errno = EINVAL;
                 return result;
               }
+              is_good = true;
               break;
             }
           }
@@ -77,6 +80,9 @@ std::vector<OptMove> Parser::ParseCGOptMoves(std::FILE *stream) const {
       }
       continue;
     }
+  }
+  if (!is_good) {
+    result.pop_back();
   }
   return result;
 }
