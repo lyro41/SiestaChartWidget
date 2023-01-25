@@ -37,6 +37,16 @@ std::string CreateShellScript(const std::string &siesta_path) {
   }
 }
 
+int LaunchSiesta() {
+  CreateShellScript(GetSiestaPath());
+
+  #ifdef __unix__
+  return system((std::string("sh ") + EXECUTION_DIR + "/" + SHELL_SCRIPT_NAME).c_str());
+  #endif // __unix__
+
+  return ECANCELED;
+}
+
 #endif // __unix__
 
 std::string GetSiestaPath() {
@@ -52,14 +62,4 @@ std::string GetSiestaPath() {
   }
   std::fclose(stream);
   return std::string(buff);
-}
-
-int LaunchSiesta() {
-  CreateShellScript(GetSiestaPath());
-
-  #ifdef __unix__
-  return system((std::string("sh ") + EXECUTION_DIR + "/" + SHELL_SCRIPT_NAME).c_str());
-  #endif // __unix__
-
-  return ECANCELED;
 }

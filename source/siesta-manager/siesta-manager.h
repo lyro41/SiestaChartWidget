@@ -16,14 +16,14 @@
 /// @param[in] siesta_path путь до исполняемого файла SIESTA
 /// @return путь до bash-скрипта
 std::string CreateShellScript(const std::string &siesta_path);
+/// @brief функция для запуска работы SIESTA
+/// @return код ошибки выполнения функции
+int LaunchSiesta();
 
 #endif // __unix__
 
 /// @brief функция получения пути до исполняемого файла SIESTA из файла siesta.cfg
 /// @return путь до исполняемого файла SIESTA
 std::string GetSiestaPath();
-/// @brief функция для запуска работы SIESTA
-/// @return код ошибки выполнения функции
-int LaunchSiesta();
 
 #endif // SIESTA_LAUNCH_H
