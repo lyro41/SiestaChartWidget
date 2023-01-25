@@ -1,4 +1,4 @@
-#include <siesta-manager.h>
+#include <siesta-manager/siesta-manager.h>
 
 #include <cerrno>
 #include <cstdio>
