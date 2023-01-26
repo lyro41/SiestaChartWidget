@@ -40,7 +40,7 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 include_directories(source)
 
 # create paths to data files
-set(EXECUTION_DIR "${CMAKE_CURRENT_BINARY_DIR}/execution")
+set(EXECUTION_DIR ".")
 set(SIESTA_CONFIG "${EXECUTION_DIR}/siesta.cfg")
 set(CHARTS_OUTPUT "${EXECUTION_DIR}/charts")
 
