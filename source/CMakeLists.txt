@@ -12,6 +12,10 @@ target_link_libraries(main configure
                            Qt${QT_VERSION_MAJOR}::Widgets 
                            Qt${QT_VERSION_MAJOR}::Core)
 
+if(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
+  set(CMAKE_INSTALL_PREFIX "${CMAKE_BINARY_DIR}/install" CACHE PATH "..." FORCE)
+endif()
+
 install(FILES "../examples/output/siesta.out" DESTINATION ${EXECUTION_DIR})
 install(FILES "../examples/input/source.fdf" 
               "../examples/input/H.psf"
