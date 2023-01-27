@@ -33,5 +33,8 @@ install(FILES "../examples/input/source.fdf"
               "../examples/input/H.psf"
               "../examples/input/Si.psf"
         DESTINATION .)
-install(RUNTIME_DEPENDENCY_SET runtime-dependencies DESTINATION .)
+install(IMPORTED_RUNTIME_ARTIFACTS Qt${QT_VERSION_MAJOR}::Charts 
+                                   Qt${QT_VERSION_MAJOR}::Core
+                                   Qt${QT_VERSION_MAJOR}::Widgets
+                                   DESTINATION .)
 install(TARGETS main DESTINATION .)
