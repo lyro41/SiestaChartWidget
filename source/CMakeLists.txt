@@ -16,14 +16,14 @@ if(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
   set(CMAKE_INSTALL_PREFIX "${CMAKE_BINARY_DIR}/install" CACHE PATH "..." FORCE)
 endif()
 
-if (BUILD_SHARED_LIBS)
-  foreach(DEP ${DEPS})
-    add_custom_command(TARGET ${PROJECT_NAME} PRE_BUILD
-                       COMMAND ${CMAKE_COMMAND} -E copy
-                       $<TARGET_FILE:${DEP}>
-                       $<TARGET_FILE_DIR:${PROJECT_NAME}>)
-  endforeach()
-endif()
+# if (BUILD_SHARED_LIBS)
+#   foreach(DEP ${DEPS})
+#     add_custom_command(TARGET ${PROJECT_NAME} PRE_BUILD
+#                        COMMAND ${CMAKE_COMMAND} -E copy
+#                        $<TARGET_FILE:${DEP}>
+#                        $<TARGET_FILE_DIR:${PROJECT_NAME}>)
+#   endforeach()
+# endif()
 
 install(CODE "set(EXECUTION_DIR ${CMAKE_INSTALL_PREFIX})")
 install(CODE "file(MAKE_DIRECTORY ${EXECUTION_DIR})")
@@ -35,5 +35,11 @@ install(FILES "../examples/input/source.fdf"
         DESTINATION .)
 if (WIN32)
   install(FILES $<TARGET_RUNTIME_DLLS:main> DESTINATION .)
+else (WIN32)
+  install(IMPORTED_RUNTIME_ARTIFACTS Qt${QT_VERSION_MAJOR}::Charts 
+                                     Qt${QT_VERSION_MAJOR}::Core
+                                     Qt${QT_VERSION_MAJOR}::Widgets
+                                     Qt${QT_VERSION_MAJOR}::Gui
+                                     DESTINATION .)
 endif (WIN32)
 install(TARGETS main DESTINATION .)
