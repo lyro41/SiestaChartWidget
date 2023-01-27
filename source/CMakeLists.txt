@@ -35,6 +35,7 @@ install(FILES "../examples/input/source.fdf"
         DESTINATION .)
 if (WIN32)
   install(FILES $<TARGET_RUNTIME_DLLS:main> DESTINATION .)
+  install(FILES "$<TARGET_FILE:Qt5::QWindowsIntegrationPlugin>" DESTINATION ./platforms)
 else (WIN32)
   install(IMPORTED_RUNTIME_ARTIFACTS Qt${QT_VERSION_MAJOR}::Charts 
                                      Qt${QT_VERSION_MAJOR}::Core
