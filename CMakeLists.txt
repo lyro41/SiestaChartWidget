@@ -1,5 +1,5 @@
 # set minimum version of cmake required for the project
-cmake_minimum_required(VERSION 3.16)
+cmake_minimum_required(VERSION 3.21)
 
 # enable required languages
 enable_language(C)
@@ -7,7 +7,7 @@ enable_language(CXX)
 
 # set project name, version and required languages
 project(coursework
-        VERSION 3.16.3
+        VERSION 3.21
         LANGUAGES C CXX)
 
 # specify the C standard

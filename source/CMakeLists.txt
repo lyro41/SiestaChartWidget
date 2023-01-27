@@ -33,4 +33,5 @@ install(FILES "../examples/input/source.fdf"
               "../examples/input/H.psf"
               "../examples/input/Si.psf"
         DESTINATION .)
+install(RUNTIME_DEPENDENCY_SET runtime-dependencies DESTINATION .)
 install(TARGETS main DESTINATION .)
