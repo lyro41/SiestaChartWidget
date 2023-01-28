@@ -26,6 +26,11 @@ set(CMAKE_AUTOUIC ON)
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Gui Widgets Core Charts)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Gui Widgets Core Charts)
 
+include_directories(${Qt${QT_VERSION_MAJOR}Gui_INCLUDE_DIRS})
+include_directories(${Qt${QT_VERSION_MAJOR}Widgets_INCLUDE_DIRS})
+include_directories(${Qt${QT_VERSION_MAJOR}Core_INCLUDE_DIRS})
+include_directories(${Qt${QT_VERSION_MAJOR}Charts_INCLUDE_DIRS})
+
 find_package(Doxygen)
 if(DOXYGEN_FOUND)
   add_custom_target(docs ${DOXYGEN_EXECUTABLE} docs.doxyfile
