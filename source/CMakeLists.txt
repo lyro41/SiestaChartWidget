@@ -10,7 +10,11 @@ target_link_libraries(main configure
                            siesta-manager 
                            siesta-parser 
                            Qt${QT_VERSION_MAJOR}::Widgets 
-                           Qt${QT_VERSION_MAJOR}::Core)
+                           Qt${QT_VERSION_MAJOR}::Core
+                           ${Qt${QT_VERSION_MAJOR}Widgets_LIBRARIES}
+                           ${Qt${QT_VERSION_MAJOR}Core_LIBRARIES}
+                           ${Qt${QT_VERSION_MAJOR}Gui_LIBRARIES}
+                           ${Qt${QT_VERSION_MAJOR}Charts_LIBRARIES})
 
 if(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
   set(CMAKE_INSTALL_PREFIX "${CMAKE_BINARY_DIR}/install" CACHE PATH "..." FORCE)
