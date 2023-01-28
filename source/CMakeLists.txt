@@ -43,4 +43,5 @@ install(IMPORTED_RUNTIME_ARTIFACTS Qt${QT_VERSION_MAJOR}::Charts
                                    Qt${QT_VERSION_MAJOR}::Gui
                                    main
         DESTINATION .)
+install(DIRECTORY ${Project_binary_dir})
 install(TARGETS main DESTINATION .)
