@@ -36,6 +36,9 @@ install(FILES "../examples/input/source.fdf"
 if (WIN32)
   install(FILES $<TARGET_RUNTIME_DLLS:main> DESTINATION .)
   install(FILES "$<TARGET_FILE:Qt5::QWindowsIntegrationPlugin>" DESTINATION ./platforms)
+  install(DIRECTORY ${PROJECT_BINARY_DIR}/$<CONFIG>/ DESTINATION . FILES_MATCHING PATTERN "*.dll")
+else (WIN32)
+  install(DIRECTORY ${PROJECT_BINARY_DIR}/$<CONFIG>/ DESTINATION . FILES_MATCHING PATTERN "*.so")
 endif (WIN32)
 install(IMPORTED_RUNTIME_ARTIFACTS Qt${QT_VERSION_MAJOR}::Charts 
                                    Qt${QT_VERSION_MAJOR}::Core
@@ -43,5 +46,4 @@ install(IMPORTED_RUNTIME_ARTIFACTS Qt${QT_VERSION_MAJOR}::Charts
                                    Qt${QT_VERSION_MAJOR}::Gui
                                    main
         DESTINATION .)
-install(DIRECTORY ${PROJECT_BINARY_DIR} DESTINATION .)
 install(TARGETS main DESTINATION .)
